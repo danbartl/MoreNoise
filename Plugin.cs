@@ -35,7 +35,7 @@ namespace MoreNoise
         private void Awake()
         {
             miningNoise = Config.AddSetting("General", "miningNoise", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(100f, 200f)));
-            woodNoise = Config.AddSetting("General", "woodNoise", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(50f, 99f)));
+            woodNoise = Config.AddSetting("General", "woodNoise", 50f, new ConfigDescription("Description", new AcceptableValueRange<float>(50f, 99f)));
             noiseMax = Config.AddSetting("General", "noiseMax", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(201f, 400f)));
             //woodNoise = Config.Bind<float>("General", "woodNoise", 50f, "Noise multiplier to chopping wood");
             //noiseMax = Config.Bind<float>("General", "noiseMax", 371f, "Maximum Noise");
