@@ -1,0 +1,6 @@
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\bin\Debug\MoreNoise.dll
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\bin\Debug\MoreNoise.pdb
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Debug\MoreNoise.csprojAssemblyReference.cache
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Debug\MoreNoise.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Debug\MoreNoise.dll
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Debug\MoreNoise.pdb

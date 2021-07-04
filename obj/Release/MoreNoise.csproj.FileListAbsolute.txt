@@ -1,0 +1,16 @@
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\bin\Release\MoreNoise.dll
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\bin\Release\MoreNoise.pdb
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Release\MoreNoise.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Release\MoreNoise.dll
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Release\MoreNoise.pdb
+C:\Users\danie\source\repos\MoreNoise\MoreNoise\obj\Release\MoreNoise.csprojAssemblyReference.cache
+C:\Users\danie\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\20210619_Mods_dev2\BepInEx\plugins\moreNoise\MoreNoise.dll
+C:\Users\danie\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\20210619_Mods_dev2\BepInEx\plugins\moreNoise\MoreNoise.pdb
+C:\Users\danie\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\devtest\BepInEx\plugins\moreNoise\MoreNoise.dll
+C:\Users\danie\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\devtest\BepInEx\plugins\moreNoise\MoreNoise.pdb
+C:\Users\danie\source\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\devtest\BepInEx\plugins\moreNoise\MoreNoise.dll
+C:\Users\danie\source\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\devtest\BepInEx\plugins\moreNoise\MoreNoise.pdb
+C:\Users\danie\source\repos\MoreNoise\noise_valheim\MoreNoise\obj\Release\MoreNoise.csprojAssemblyReference.cache
+C:\Users\danie\source\repos\MoreNoise\noise_valheim\MoreNoise\obj\Release\MoreNoise.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\MoreNoise\noise_valheim\MoreNoise\obj\Release\MoreNoise.dll
+C:\Users\danie\source\repos\MoreNoise\noise_valheim\MoreNoise\obj\Release\MoreNoise.pdb
