@@ -21,7 +21,7 @@ namespace MoreNoise
         private static float noiseTracker =0f;
         private static float noiseTracker_x = 0f;
         private static float c_value= 0f;
-        private static float k_value = 0.00001f;
+        private static float k_value = 0.000004f;
 
         Harmony _Harmony;
         public static ManualLogSource Log;
@@ -34,14 +34,17 @@ namespace MoreNoise
 
         private void Awake()
         {
-            miningNoise = Config.AddSetting("General", "miningNoise", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(100f, 200f)));
-            woodNoise = Config.AddSetting("General", "woodNoise", 50f, new ConfigDescription("Description", new AcceptableValueRange<float>(50f, 99f)));
-            noiseMax = Config.AddSetting("General", "noiseMax", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(201f, 400f)));
+            //miningNoise = Config.AddSetting("General", "miningNoise", 200f, new ConfigDescription("Description", new AcceptableValueRange<float>(100f, 300f)));
+            //woodNoise = Config.AddSetting("General", "woodNoise", 50f, new ConfigDescription("Description", new AcceptableValueRange<float>(50f, 300f)));
+            //noiseMax = Config.AddSetting("General", "noiseMax", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(301f, 500f)));
+            miningNoise = Config.Bind("General", "miningNoise", 100f, new ConfigDescription("Description", new AcceptableValueRange<float>(100f, 300f)));
+            woodNoise = Config.Bind("General", "woodNoise", 50f, new ConfigDescription("Description", new AcceptableValueRange<float>(50f, 300f)));
+            noiseMax = Config.Bind("General", "noiseMax", 400f, new ConfigDescription("Description", new AcceptableValueRange<float>(301f, 500f)));
+
             //woodNoise = Config.Bind<float>("General", "woodNoise", 50f, "Noise multiplier to chopping wood");
             //noiseMax = Config.Bind<float>("General", "noiseMax", 371f, "Maximum Noise");
-            
-            c_value = (float)Math.Exp((float)k_value * (float)noiseMax.Value * (float)(miningNoise.Value)) * ((float)noiseMax.Value / 100f - 1f);
-            Dbgl($"c_value was {c_value}");
+
+                        
 #if DEBUG
 			Log = Logger;
 #else
@@ -125,17 +128,19 @@ namespace MoreNoise
                     double miningNoise_conv = System.Convert.ToDouble(miningNoise.Value);
                     double noiseMax_conv = System.Convert.ToDouble(noiseMax.Value);
 
+                    c_value = (float)Math.Exp((float)k_value * (float)noiseMax.Value * (float)(miningNoise.Value)) * ((float)noiseMax.Value / 100f - 1f);
+
                     noiseTracker_x = (float)Math.Max(
                         -1f*Math.Log((float)noiseMax.Value / ((float)noiseTracker * (float)c_value) - 1 / (float)c_value) / ((float)k_value * (float)noiseMax.Value) + (float)miningNoise_conv
                         , (float)miningNoise_conv);
                     noiseTracker = (float)((float)noiseMax_conv / (1 + (float)c_value * Math.Exp((float)(k_value) * (float)(noiseMax_conv) * (float)noiseTracker_x * -1f)));
-
+                    /*
                     Dbgl($"Noise was given back as {closestPlayer.m_noiseRange}");
-                    Dbgl($"Noise value was {miningNoise.Value}");
-                    Dbgl($"Final Noise value was {noiseTracker}");
+                    Dbgl($"Noise value was {miningNoise.Value}");                   
                     Dbgl($"noiseTracker_x valuex was {noiseTracker_x}");
                     Dbgl($"c_value was {c_value}");
-
+                    */
+                    Dbgl($"Final Noise value was {noiseTracker}");
                     closestPlayer.m_noiseRange = noiseTracker;
                 }
             }
@@ -151,7 +156,7 @@ namespace MoreNoise
 
                 if ((bool)closestPlayer)
                 {
-                    Dbgl($"Noise was{closestPlayer.GetNoiseRange()}");
+                    //Dbgl($"Noise was{closestPlayer.GetNoiseRange()}");
                     noiseTracker = closestPlayer.GetNoiseRange();
                 }
             }
@@ -166,17 +171,19 @@ namespace MoreNoise
                     double miningNoise_conv = System.Convert.ToDouble(miningNoise.Value);
                     double noiseMax_conv = System.Convert.ToDouble(noiseMax.Value);
 
+                    c_value = (float)Math.Exp((float)k_value * (float)noiseMax.Value * (float)(miningNoise.Value)) * ((float)noiseMax.Value / 100f - 1f);
+
                     noiseTracker_x = (float)Math.Max(
                         -1f * Math.Log((float)noiseMax.Value / ((float)noiseTracker * (float)c_value) - 1 / (float)c_value) / ((float)k_value * (float)noiseMax.Value) + (float)miningNoise_conv
                         , (float)miningNoise_conv);
                     noiseTracker = (float)((float)noiseMax_conv / (1 + (float)c_value * Math.Exp((float)(k_value) * (float)(noiseMax_conv) * (float)noiseTracker_x * -1f)));
-
+                    /*
                     Dbgl($"Noise was given back as {closestPlayer.m_noiseRange}");
                     Dbgl($"Noise value was {miningNoise.Value}");
-                    Dbgl($"Final Noise value was {noiseTracker}");
                     Dbgl($"noiseTracker_x value was {noiseTracker_x}");
                     Dbgl($"c_value was {c_value}");
-
+                    */
+                    Dbgl($"Final Noise value was {noiseTracker}");
                     closestPlayer.m_noiseRange = noiseTracker;
 
                     //closestPlayer.m_seman.ModifyNoise(noiseTracker, ref closestPlayer.m_noiseRange);
@@ -196,7 +203,7 @@ namespace MoreNoise
 
                 if ((bool)closestPlayer)
                 {
-                    Dbgl($"Noise was{closestPlayer.GetNoiseRange()}");
+                    //Dbgl($"Noise was{closestPlayer.GetNoiseRange()}");
                     noiseTracker = closestPlayer.GetNoiseRange();
                 }
             }
@@ -213,13 +220,16 @@ namespace MoreNoise
                     //double noiseMax_conv = System.Convert.ToDouble(noiseMax.Value);
 
                     noiseTracker = (float)Math.Max((float)woodNoise_conv, (float)noiseTracker);
-                    
+
+                    /*
                     Dbgl($"Noise was given back as {closestPlayer.m_noiseRange}");
                     Dbgl($"Noise value was {woodNoise.Value}");
+                    noiseTracker = miningNoise - noiseMax;
+                    */
                     Dbgl($"Final Noise value was {noiseTracker}");
-                    //noiseTracker = miningNoise - noiseMax;
+
                     closestPlayer.m_noiseRange = noiseTracker;
-                    //closestPlayer.m_seman.ModifyNoise(noiseTracker, ref closestPlayer.m_noiseRange);
+                                        
 
                 }
             }
@@ -248,16 +258,16 @@ namespace MoreNoise
                 {
 
                     double woodNoise_conv = System.Convert.ToDouble(woodNoise.Value);
-                    //double noiseMax_conv = System.Convert.ToDouble(noiseMax.Value);
-
+                    
                     noiseTracker = (float)Math.Max((float)woodNoise_conv, (float)noiseTracker);
 
+                    /*
                     Dbgl($"Noise was given back as {closestPlayer.m_noiseRange}");
-                    Dbgl($"Noise value was {woodNoise.Value}");
+                    Dbgl($"Noise value was {woodNoise.Value}");   
+                    */
                     Dbgl($"Final Noise value was {noiseTracker}");
-
                     closestPlayer.m_noiseRange = noiseTracker;
-                    //closestPlayer.m_seman.ModifyNoise(noiseTracker, ref closestPlayer.m_noiseRange);
+                    
 
                 }
             }
