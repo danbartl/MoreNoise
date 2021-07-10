@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MoreNoise
 {
-    [BepInPlugin("your.unique.mod.identifier", Plugin.ModName, Plugin.Version)]
+    [BepInPlugin("dampfschlaghammer.MoreNoise", Plugin.ModName, Plugin.Version)]
     public class Plugin : BaseUnityPlugin
     {
         private static readonly bool isDebug = true;
